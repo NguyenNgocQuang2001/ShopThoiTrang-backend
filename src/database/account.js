@@ -16,12 +16,14 @@ const Schema = mongoose.Schema;
 const AccountSchema = new Schema({
 
     account_id : String,
+    name : String,
     username : String,
     password : String,
     role : String,
-    role_id : String
+    email : String,
+    phone : String
 }, {
-    collection : 'accounts'
+    collection: 'accounts'
 });
 
 const Account = mongoose.model('accounts', AccountSchema);
