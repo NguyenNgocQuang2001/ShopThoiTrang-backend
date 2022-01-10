@@ -8,7 +8,6 @@ const app = express();
 const PORT = process.env.PORT || 9090;
 
 
-
 app.use(cors({
 
     //credentials: true,
@@ -16,7 +15,7 @@ app.use(cors({
 }));
 
 app.use(bodyParser.urlencoded( { extended : false }));
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 dotenv.config();
 app.use(morgan('combined'));
 app.use(router);

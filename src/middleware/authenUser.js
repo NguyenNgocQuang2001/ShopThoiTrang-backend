@@ -18,7 +18,7 @@ const authenUser = async (req, res, next) => {
     if (account) {
         
         var answer = 'Số điện thoại đã tồn tại !!!';
-        if (account == account2) {
+        if (account == account1) {
             answer = 'Email đã tồn tại !!!';
         }
         res.json( {

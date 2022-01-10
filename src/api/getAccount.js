@@ -178,7 +178,25 @@ const createAcc = async (name, password, email, phone) => {
 
 }
 
+const getUserName = (accid) => {
+
+    var results = Account.findOne({
+
+        account_id : accid
+    })
+    .then(data => {
+        //console.log(data);
+        return data.username;
+    })
+    .catch(err => {
+
+        console.log("loi server");
+    });
+
+    return results;
+}
+
 module.exports = { 
     getAccountIdByEmail, getAccountIdByPhone, getAccountIdByUsername, authenAcc_id,
-    getAccIdByEmail, getAccIdByPhone, getAccIdByUsername, createAcc
+    getAccIdByEmail, getAccIdByPhone, getAccIdByUsername, createAcc, getUserName
 };

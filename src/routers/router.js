@@ -10,6 +10,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
 
     res.json("server run oke :))");
+    //next();
 });
 
 router.get('/home', (req, res, next) => {

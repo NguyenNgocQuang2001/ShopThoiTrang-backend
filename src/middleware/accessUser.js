@@ -1,5 +1,10 @@
 const jwt = require('jsonwebtoken');
-const { getAccountIdByUsername, getAccountIdByPhone, getAccountIdByEmail } = require('../api/getAccount');
+const { 
+    getAccountIdByUsername,
+     getAccountIdByPhone,
+      getAccountIdByEmail,
+      getUserName
+ } = require('../api/getAccount');
 
 const accessUser = async (req, res, next) => {
 
@@ -13,6 +18,7 @@ const accessUser = async (req, res, next) => {
     var account2 = await getAccountIdByEmail(username, password);
     var account3 = await getAccountIdByPhone(username, password);
     var account = account1 || account2 || account3 ;
+    var uname = await getUserName(account);
     //console.log(account);
 
     if (account) {
@@ -22,10 +28,11 @@ const accessUser = async (req, res, next) => {
             expiresIn : '24h'
         });
         
-        res.json( {
+        res.json({
 
-            token : token
-        })
+            token : token,
+            user : uname
+        });
 
         //res.json(account_id);
     } else {
