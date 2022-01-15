@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/FashtionShop', function(err) {
         console.log('Ko ket noi dc vs database :((');
         //throw err;
     } else {
-        console.log("Connected to FashtionShop !!!");
+        //console.log("Connected to FashtionShop !!!");
     }
 });
 

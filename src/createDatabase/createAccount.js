@@ -23,7 +23,7 @@ const AccountSchema = new Schema({
 
 const Account = mongoose.model('accounts', AccountSchema);
 
-/*for (let i = 0; i < 5; ++i) {
+for (let i = 0; i < 2; ++i) {
 
     Account.create({
 
@@ -35,6 +35,6 @@ const Account = mongoose.model('accounts', AccountSchema);
         email : "quang" + i + "@gmail.com",
         phone : "0123456789" + i
     });
-}*/
+}
 
 module.exports = Account;
