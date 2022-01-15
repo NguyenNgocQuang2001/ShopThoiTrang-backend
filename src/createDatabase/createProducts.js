@@ -67,7 +67,7 @@ var productline = [
     },
     {
         type : "Ao",
-        quantily : 688
+        quantily : 788
     },
     {
         type : "Quan",

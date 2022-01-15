@@ -5,7 +5,10 @@ const getProduct = async (req, res, next) => {
     var filter = req.body;
     //console.log(filter);
     var data = await getPro(filter);
-    var allpage = await countPro(filter);
+    var allpage = 0;
+    if (filter.count) {
+        allpage = await countPro(filter);
+    }
     //console.log(allpage);
 
     if (data) {

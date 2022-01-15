@@ -6,7 +6,7 @@ const getPro = (filter) => {
     // .aggregate([
     
     // ])
-    console.log(filter.filter);
+    //console.log(filter.filter);
     var results = Product
     //.find(filter.filter)
     .aggregate(filter.filter) // Array
