@@ -16,7 +16,11 @@ const AccountSchema = new Schema({
     password : String,
     role : String,
     email : String,
-    phone : String
+    phone : String,
+    pathimg : String,
+    address : String,
+    birthday : Date,
+    sex : Boolean
 }, {
     collection: 'accounts'
 });
@@ -28,12 +32,16 @@ for (let i = 0; i < 2; ++i) {
     Account.create({
 
         account_id : "Accq" + i,
-        name : "NULL",
+        name : null,
         username : "quang" + i,
         password : String(i),
-        role : "NULL",
+        role : null,
         email : "quang" + i + "@gmail.com",
-        phone : "0123456789" + i
+        phone : "0123456789" + i,
+        pathimg : null,
+        address : null,
+        sex : null,
+        birthday : null
     });
 }
 

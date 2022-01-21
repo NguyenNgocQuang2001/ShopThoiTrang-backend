@@ -171,7 +171,9 @@ const createAcc = async (name, password, email, phone) => {
         password : password,
         role : 'customer',
         email : email,
-        phone : phone
+        phone : phone,
+        pathimg : null,
+        address : null
     };
     
     await Account.create(acc);
@@ -196,7 +198,80 @@ const getUserName = (accid) => {
     return results;
 }
 
+const updateUser = (filter, setValue) => {
+
+    //console.log(filter);
+    Account.updateOne(filter, setValue, err => {
+
+        if (err) throw err;
+        console.log("update information oke !!!");
+    });
+}
+
+const getUserByun = (filter) => {
+
+    var results = Account
+    .aggregate(filter) // Array
+    .then(data => {
+        //console.log(data);
+
+        return data;
+    })
+    .catch(err => {
+
+        console.log("loi server");
+        //return "this is no account !!!";
+    });
+
+    return results;
+}
+
+const getUserByFilter = (filter) => {
+
+    var results = Account
+    .aggregate(filter) // Array
+    .then(data => {
+        //console.log(data);
+
+        return data;
+    })
+    .catch(err => {
+
+        console.log("loi server");
+        //return "this is no account !!!";
+    });
+
+    return results;
+}
+
+const updateUserAttr = (filter, setValue) => {
+
+    Account.updateOne(filter, setValue, err => {
+
+        if (err) throw err;
+        console.log("update information oke !!!");
+    });
+}
+
+const getImagebyUser = (filter) => {
+
+    var result = Account.findOne(filter)
+    .then(data => {
+
+        return data.pathimg;
+    })
+    .catch(err => {
+
+        console.log("Lỗi server !!!");
+    });
+
+    return result;
+}
+
+
 module.exports = { 
-    getAccountIdByEmail, getAccountIdByPhone, getAccountIdByUsername, authenAcc_id,
-    getAccIdByEmail, getAccIdByPhone, getAccIdByUsername, createAcc, getUserName
+    getAccountIdByEmail, getAccountIdByPhone, getAccountIdByUsername,
+    authenAcc_id, getAccIdByEmail, getAccIdByPhone, getAccIdByUsername, 
+    createAcc, getUserName, updateUser, getUserByun, getUserByFilter,
+    updateUserAttr, getImagebyUser
 };

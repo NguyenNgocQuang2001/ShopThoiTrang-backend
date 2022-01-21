@@ -21,7 +21,11 @@ const AccountSchema = new Schema({
     password : String,
     role : String,
     email : String,
-    phone : String
+    phone : String,
+    pathimg : String,
+    address : String,
+    birthday : Date,
+    sex : Boolean
 }, {
     collection: 'accounts'
 });
